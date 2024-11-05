@@ -48,6 +48,15 @@ class manejo_datos():
                     simpli_geom = geom.simplify(tolerancia)
                     feature["geometry"] = mapping(simpli_geom)
                     dst.write(feature)
-            
+    # TODO: Metodo que abre el dialogo del sistema para abrir un archivo 
+    def abrir_arch():
+        file = filedialog.askopenfile()
+        if file:
+            dat = json.load(file)
+            file.close()
+            return dat
+        else:
+            print("No se a seleccionado ningún archivo.") 
+            return None        
         
         
